@@ -1,0 +1,33 @@
+{
+  "name": "simple-rss-reader",
+  "version": "1.0.0",
+  "description": "简单的rss阅读服务（三级项目）",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puresox/simple-rss-reader.git"
+  },
+  "author": "puresox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/puresox/simple-rss-reader/issues"
+  },
+  "homepage": "https://github.com/puresox/simple-rss-reader#readme",
+  "dependencies": {
+    "handlebars": "^4.0.11",
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0",
+    "koa-session": "^5.5.1",
+    "koa-views": "^6.1.3",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
