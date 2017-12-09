@@ -1,8 +1,10 @@
 const request = require('request-promise');
+const articleModel = require('../service/article');
 const { parseString } = require('xml2js');
+const moment = require('moment');
 
 module.exports = {
-  getXml2js: async (uri) => {
+  getXml2js: async function getXml2js(uri) {
     const options = {
       uri,
       simple: false,
@@ -24,18 +26,42 @@ module.exports = {
   getSourceInfo: async (rssObj) => {
     const name = rssObj.title[0];
     const description = rssObj.description[0];
-    const rss = rssObj['atom:link'][0].$.href;
+    const rssLink = rssObj['atom:link'][0].$.href;
     const link = rssObj.link[0];
     return {
       name,
       description,
-      rss,
+      rssLink,
       link,
     };
   },
 
-  getArticles: async ({ item }) => {
-    const articles = item;
-    return articles;
+  updateArticlesForOneSource: async function updateArticlesForOneSource(sourceid, rss) {
+    const updateArticlesPromises = [];
+    const { item: articles } = await this.getXml2js(rss);
+    const article = await articleModel.findLatestBySource(sourceid);
+    let latestPubDate;
+    if (article) {
+      latestPubDate = moment(article.pubDate);
+    } else {
+      latestPubDate = moment(0);
+    }
+    for (let index = 0; index < articles.length; index += 1) {
+      const thePubDate = moment(articles[index].pubDate[0]);
+      if (thePubDate <= latestPubDate) {
+        break;
+      }
+      const { title: [title], description: [description], link: [link] } = articles[index];
+      updateArticlesPromises.push(articleModel.create(sourceid, title, thePubDate.format(), description, link));
+    }
+    await Promise.all(updateArticlesPromises);
+  },
+
+  updateArticlesForAllSource: async function updateArticlesForAllSource(sources) {
+    const updateArticlesPromises = [];
+    sources.forEach(({ id, rss }) => {
+      updateArticlesPromises.push(this.updateArticlesForOneSource(id, rss));
+    });
+    await Promise.all(updateArticlesPromises);
   },
 };

@@ -2,8 +2,11 @@ const Router = require('koa-router');
 const userModel = require('../service/user');
 const { secret, cookie } = require('../config/config');
 const crypto = require('crypto');
+const { checkNotSignIn } = require('../middleware/check');
 
 const router = new Router();
+
+router.use(checkNotSignIn);
 
 router
   .get('/', async (ctx) => {

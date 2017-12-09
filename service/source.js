@@ -2,7 +2,7 @@ const mysql = require('../mysql');
 
 module.exports = {
   create: async (name, description, rssLink, link) => {
-    const sqlString = 'insert into source(name, description, rssLink, link) values(?, ?, ?, ?)';
+    const sqlString = 'insert into source(name, description, rss, link) values(?, ?, ?, ?)';
     const values = [name, description, rssLink, link];
     const { results } = await mysql(sqlString, values);
     return results;
