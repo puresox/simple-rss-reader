@@ -7,7 +7,7 @@
             </div>
             <div id="head">
                 <form action="/article/searchResult" method="post">
-                      <input class="ser" type="text"><input class="btn_ser" type="submit" value="搜索"><!-- 搜索框-->
+                      <input class="ser" type="text" name = "search"><input class="btn_ser" type="submit" value="搜索"><!-- 搜索框-->
                 </form>
                 <!-- 搜索框-->
                 <div id="head_sculpture">
@@ -31,6 +31,7 @@
                         <div>
                             <div class="title">
                                 <strong href="<%= article.link %>"><%= article.title %></strong>
+                                <input type = "hidden" name = "articleid" value = "<%= article.id %>">
                                 <img onclick="javascript:$('#clloctForm').submit();" class="collect" src="/img/icon9.JPG">
                             </div>
                             <div class="author"><%= article.pubDate %></div>

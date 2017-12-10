@@ -7,7 +7,7 @@
             </div>
             <div id="head">
                 <form action="/article/searchResult" method="post">
-                      <input class="ser" type="text"><input class="btn_ser" type="submit" value="搜索"><!-- 搜索框-->
+                      <input class="ser" type="text" name = "search"><input class="btn_ser" type="submit" value="搜索"><!-- 搜索框-->
                 </form>
                 <!-- 搜索框-->
                 <div id="head_sculpture">
@@ -35,7 +35,8 @@
                             <% sources.forEach(function(source){ %>
                             <form id="delSiteForm" name="delSiteForm" action="/article/removeSubscription" method="post">
                             <div>
-                                <span><%= sources.name %></span>
+                                <span><%= source.name %></span>
+                                <input type = "hidden" name = "sourceid" value = "<%= source.id %>">
                                 <img onclick="javascript:$('#delSiteForm').submit();" src="/img/icon5.jpg">
                             </div>
                             </form>
