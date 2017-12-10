@@ -29,14 +29,9 @@
                     <!--<div class="b">刷新</div>-->
                     <br>
                     <div id="manage">
-                        <div id="url_serch">
-                            <div>
-                                <input type="text" name = "rss" placeholder="输入网站链接">
-                            </div>
-                            <div>
-                                <img src="/img/icon6.jpg">
-                            </div>
-                        </div>
+                        <form id="serch_siteForm" name="serch_siteForm" action="#" method="post">
+                            <div id="url_serch"><div><input type="text" placeholder="输入网站链接"></div><div><img onclick="javascript:$('#serch_siteForm').submit();" src="img/icon6.jpg"></div></div>
+                        </form>
                         <div id="publicPlatform">
                             <% sources.forEach(function(source){ %>
                             <div>
