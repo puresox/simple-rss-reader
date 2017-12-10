@@ -25,7 +25,7 @@ router
     });
   })
   // 某资源文章页
-  .get('source/:sourceid', async (ctx) => {
+  .get('/source/:sourceid', async (ctx) => {
     const { sourceid } = ctx.params;
     const userid = ctx.cookies.get('userid');
     const username = ctx.cookies.get('username');
