@@ -6,7 +6,7 @@
                 <img src="/img/swith_one.jpg">
             </div>
             <div id="head">
-                <form action="#" method="post">
+                <form action="/article/searchResult" method="post">
                       <input class="ser" type="text"><input class="btn_ser" type="submit" value="搜索"><!-- 搜索框-->
                 </form>
                 <!-- 搜索框-->
@@ -29,7 +29,7 @@
                         <div id="publicPlatform">
 
                             <% articles.forEach(function(article){ %>
-                            <form id="delArticleForm" name="delArticleForm" action="#" method="post">
+                            <form id="delArticleForm" name="delArticleForm" action="/article/removeFromBoard" method="post">
                             <div>
                                 <span href="<%= article.link %>"><%= article.title %></span>
                                 <img onclick="javascript:$('#delArticleForm').submit();" src="/img/icon5.jpg">

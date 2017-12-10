@@ -6,7 +6,7 @@
                 <img src="/img/swith_one.jpg">
             </div>
             <div id="head">
-                <form action="#" method="post">
+                <form action="/article/searchResult" method="post">
                       <input class="ser" type="text"><input class="btn_ser" type="submit" value="搜索"><!-- 搜索框-->
                 </form>
                 <!-- 搜索框-->
@@ -27,7 +27,7 @@
                     <br>
                     <div id="article">
                         <% articles.forEach(function(article){ %>
-                        <form id="clloctForm" name="clloctForm" action="#" method="post">
+                        <form id="clloctForm" name="clloctForm" action="/article/saveToBoard" method="post">
                         <div>
                             <div class="title">
                                 <strong href="<%= article.link %>"><%= article.title %></strong>

@@ -39,20 +39,6 @@ router
       username,
     });
   })
-  // 某资源文章页
-  .get('/searchResult', async (ctx) => {
-    const { search } = ctx.request.body;
-    const userid = ctx.cookies.get('userid');
-    const username = ctx.cookies.get('username');
-    const articles = await articleModel.findByTitle(userid, search);
-    const sources = await subscribeModel.find(userid);
-    await ctx.render('article', {
-      articles,
-      sources,
-      name: 'results',
-      username,
-    });
-  })
   // 管理订阅页
   .get('/subscription', async (ctx) => {
     const userid = ctx.cookies.get('userid');
@@ -69,6 +55,20 @@ router
     await ctx.render('board', {
       articles,
       sources,
+      username,
+    });
+  })
+  // 某资源文章页
+  .post('/searchResult', async (ctx) => {
+    const { search } = ctx.request.body;
+    const userid = ctx.cookies.get('userid');
+    const username = ctx.cookies.get('username');
+    const articles = await articleModel.findByTitle(userid, search);
+    const sources = await subscribeModel.find(userid);
+    await ctx.render('article', {
+      articles,
+      sources,
+      name: 'results',
       username,
     });
   })
