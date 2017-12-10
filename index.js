@@ -17,9 +17,9 @@ app.use(bodyParser());
 
 // Must be used before any router is used
 app.use(views(`${__dirname}/views`, {
-  extension: 'handlebars',
+  // extension: 'ejs',
   map: {
-    html: 'handlebars',
+    html: 'ejs',
   },
   options: {},
 }));

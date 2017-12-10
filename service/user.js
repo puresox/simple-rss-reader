@@ -14,4 +14,17 @@ module.exports = {
     const { results: users } = await mysql(sqlString, values);
     return users;
   },
+
+  findByid: async (id) => {
+    const sqlString = 'select * from user where id = ?';
+    const values = [id];
+    const { results: [user] } = await mysql(sqlString, values);
+    return user;
+  },
+
+  updatePassword: async (id, password) => {
+    const sqlString = 'update user set password = ? where id = ?';
+    const values = [password, id];
+    await mysql(sqlString, values);
+  },
 };

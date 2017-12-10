@@ -1,0 +1,42 @@
+#all_head{
+    margin-top:30px;
+    height:70px;
+    /* background-color: #ECE7E7; */
+}
+#all_head span{
+    font-size: 15px;
+    line-height: 35px;
+    color:#757373;
+
+}
+.a{
+    float: left;
+    line-height: 35px;
+    font-size: 30px;
+    margin-left: 150px;
+}
+#article{
+    width:85%;
+    height:470px;
+    margin-left: 150px;
+    /* background-color: #CCC; */
+}
+#article div{
+    width:650px;
+    margin-top:30px;
+}
+#article div div{
+    margin-top:5px;
+}
+.title{
+    font-size: 18px;
+}
+.author{
+    font-size: 13px;
+}
+.collect{
+    float:right;
+    width:20px;
+    height:20px;
+    margin-right: 100px;
+}

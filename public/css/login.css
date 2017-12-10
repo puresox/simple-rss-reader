@@ -1,0 +1,39 @@
+.login_div{
+    position: absolute;
+    left:450px;
+    top:160px;
+    width:400px;
+    height:300px;
+    /* background-color: #FFF; */
+}
+.login_div form div{
+    text-align: center;
+}
+.login_div form div input{
+    width:400px;
+    height:50px;
+}
+.login_div form span div{
+    /* margin-left:70px; */
+    width:198px;
+    height:40px;
+    border:1px #E9D9D9 solid;
+    background-color: #1DA031;
+    float:left;
+    line-height: 40px;
+}
+/* body{
+    background: url("img/login.jpg") no-repeat;
+    background-size:100% 100%;
+    background-attachment:fixed;
+} */
+.back{
+    position: absolute;
+    top:110px;
+    left:400px;
+    width:500px;
+    height:350px;
+    background-color: #FFF;
+    opacity:0.4;
+    filter:alpha(opacity=40); /* 针对 IE8 以及更早的版本 */
+}
