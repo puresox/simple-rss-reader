@@ -27,14 +27,16 @@
                     <br>
                     <div id="article">
                         <% articles.forEach(function(article){ %>
+                        <form id="clloctForm" name="clloctForm" action="#" method="post">
                         <div>
                             <div class="title">
                                 <strong href="<%= article.link %>"><%= article.title %></strong>
-                                <img class="collect" src="/img/icon9.JPG">
+                                <img onclick="javascript:$('#clloctForm').submit();" class="collect" src="/img/icon9.JPG">
                             </div>
                             <div class="author"><%= article.pubDate %></div>
                             <div class="short_content"><%= article.description %></div>
                         </div>
+                        </form>
                         <% }); %>
                     </div>
 
