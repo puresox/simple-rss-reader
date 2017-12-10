@@ -92,7 +92,7 @@
 #cut_line{    /* 分割线*/
     border:0.5px #E4E2E2 solid;
 }
-#head input {   /*搜索框*/
+.ser {   /*搜索框*/
     border:2px solid #C4BDBD;
     border-radius:5px;
     background:transparent;
@@ -102,10 +102,10 @@
     height:30px;
     margin-top:15px;
 }
-#head input:focus{
+.ser:focus{
     width:300px;
 }
-#head button {
+.btn_ser {
     background:#c5464a;
     border-radius:0 5px 5px 0;
     width:60px;
@@ -113,7 +113,7 @@
     right:0;
     height:36px;
 }
-#head button:before {
+.btn_ser:before {
     content:"搜索";
     font-size:13px;
     color:#F9F0DA;
