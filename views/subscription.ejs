@@ -34,10 +34,12 @@
                         </form>
                         <div id="publicPlatform">
                             <% sources.forEach(function(source){ %>
+                            <form id="delSiteForm" name="delSiteForm" action="#" method="post">
                             <div>
                                 <span><%= sources.name %></span>
-                                <img src="/img/icon5.jpg">
+                                <img onclick="javascript:$('#delSiteForm').submit();" src="/img/icon5.jpg">
                             </div>
+                            </form>
                             <% }); %>
 
                         </div>
