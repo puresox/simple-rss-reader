@@ -29,10 +29,12 @@
                         <div id="publicPlatform">
 
                             <% articles.forEach(function(article){ %>
+                            <form id="delSiteForm" name="delSiteForm" action="#" method="post">
                             <div>
                                 <span href="<%= article.link %>"><%= article.title %></span>
-                                <img src="/img/icon5.jpg">
+                                <img onclick="javascript:$('#delSiteForm').submit();" src="/img/icon5.jpg">
                             </div>
+                            </form>
                             <% }); %>
 
                         </div>
