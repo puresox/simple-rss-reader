@@ -10,7 +10,7 @@ module.exports = {
 
   find: async (userid) => {
     const sqlString =
-      'select * from subscribe left join source where subscribe.sourceid = source.id and subscribe.userid = ?';
+      'select * from subscribe left join source on subscribe.sourceid = source.id where subscribe.userid = ?';
     const values = [userid];
     const { results: sources } = await mysql(sqlString, values);
     return sources;

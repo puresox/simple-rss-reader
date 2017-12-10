@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/js/jQuery/jquery-3.2.1.min.js"></script>
+    <!--引入jQuery-->
+    <script src="/js/index.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/platform.css">
+    <title>Document</title>
+</head>
+
+<body id="body">
+    <!--个人资料-->
+    <div class="person_msg">
+        <!-- <div class="person_msg_a"><strong>&nbsp;&nbsp;&nbsp;熊思敏</strong></div> -->
+        <a href="change_password.html">
+            <div class="person_msg_b">
+                <img src="/img/icon10.png">&nbsp;修改密码</div>
+        </a>
+        <a href="login.html">
+            <div class="person_msg_b">
+                <img src="/img/icon2.png">&nbsp;退出</div>
+        </a>
+    </div>
+    <div id="main">
+        <!-- 左侧菜单 -->
+        <div id="left">
+            <br>
+            <br>
+            <div>
+                <img src="/img/icon1.jpg">&nbsp;&nbsp;
+                <strong>已订阅</strong>
+            </div>
+
+            <% sources.forEach(function(source){ %>
+            <a href="/article/source/:<%= source.id %>">
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= source.name %></div>
+            </a>
+           <% }); %>
+
+            <br>
+            <br>
+            <a href="/article/subscription">
+                <div id="goManagePage">
+                    <img src="/img/icon7.jpg">&nbsp;&nbsp;
+                    <strong>管理订阅</strong>
+                </div>
+            </a>
+            <br>
+            <br>
+            <a href="/article/board">
+                <div id="goCollect">
+                    <img src="/img/icon7.jpg">&nbsp;&nbsp;
+                    <strong>收藏管理</strong>
+                </div>
+            </a>
+
+        </div>

@@ -11,7 +11,7 @@ module.exports = {
 
   findByUser: async (userid) => {
     const sqlString =
-      'select * from article where sourceid in (select * from subscribe where userid = ?) order by pubDate desc';
+      'select * from article where sourceid in (select sourceid from subscribe where userid = ?) order by pubDate desc';
     const values = [userid];
     const { results: articles } = await mysql(sqlString, values);
     return articles;
@@ -26,7 +26,7 @@ module.exports = {
 
   findByTitle: async (userid, search) => {
     const sqlString =
-      'select * from article where sourceid in (select * from subscribe where userid = ?) and title like ? order by pubDate desc';
+      'select * from article where sourceid in (select sourceid from subscribe where userid = ?) and title like ? order by pubDate desc';
     const values = [userid, `%${search}%`];
     const { results: articles } = await mysql(sqlString, values);
     return articles;

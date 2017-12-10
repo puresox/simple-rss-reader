@@ -1,0 +1,44 @@
+<%- include('header', { sources }) %>
+        <!-- 右侧 -->
+        <div id="right">
+            <div id="swith_one">
+                <!-- 左侧菜单折叠展开按钮 -->
+                <img src="/img/swith_one.jpg">
+            </div>
+            <div id="head">
+                <input type="text">
+                <button></button>
+                <!-- 搜索框-->
+                <div id="head_sculpture">
+                    <strng><%= username %></strng>
+                    <img src="/img/icon2.png">
+                </div>
+                <!-- 头像    改为用户名-->
+            </div>
+            <div id="cut_line"></div>
+            <div id="right_body">
+                <div id="manage_article">
+                    <div id="all_head">
+                        <div class="a">
+                            <strong>收藏管理</strong>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="manage">
+                        <div id="publicPlatform">
+
+                            <% articles.forEach(function(article){ %>
+                            <div>
+                                <span href="<%= article.link %>"><%= article.title %></span>
+                                <img src="/img/icon5.jpg">
+                            </div>
+                            <% }); %>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+<%- include('footer') %>

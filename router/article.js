@@ -14,39 +14,63 @@ router
   // 文章页
   .get('/', async (ctx) => {
     const userid = ctx.cookies.get('userid');
+    const username = ctx.cookies.get('username');
     const articles = await articleModel.findByUser(userid);
     const sources = await subscribeModel.find(userid);
-    await ctx.render('article', { articles, sources, name: 'All' });
+    await ctx.render('article', {
+      articles,
+      sources,
+      name: 'All',
+      username,
+    });
   })
   // 某资源文章页
-  .get('/:sourceid', async (ctx) => {
+  .get('source/:sourceid', async (ctx) => {
     const { sourceid } = ctx.params;
     const userid = ctx.cookies.get('userid');
+    const username = ctx.cookies.get('username');
     const articles = await articleModel.findBySource(sourceid);
     const sources = await subscribeModel.find(userid);
     const { name } = await sourceModel.findById(sourceid);
-    await ctx.render('article', { articles, sources, name });
+    await ctx.render('article', {
+      articles,
+      sources,
+      name,
+      username,
+    });
   })
   // 某资源文章页
   .get('/searchResult', async (ctx) => {
     const { search } = ctx.request.body;
     const userid = ctx.cookies.get('userid');
+    const username = ctx.cookies.get('username');
     const articles = await articleModel.findByTitle(userid, search);
     const sources = await subscribeModel.find(userid);
-    await ctx.render('article', { articles, sources, name: 'results' });
+    await ctx.render('article', {
+      articles,
+      sources,
+      name: 'results',
+      username,
+    });
   })
   // 管理订阅页
   .get('/subscription', async (ctx) => {
     const userid = ctx.cookies.get('userid');
+    const username = ctx.cookies.get('username');
     const sources = await subscribeModel.find(userid);
-    await ctx.render('subscription', { sources });
+    await ctx.render('subscription', { sources, username });
   })
   // board
   .get('/board', async (ctx) => {
     const userid = ctx.cookies.get('userid');
+    const username = ctx.cookies.get('username');
     const articles = await boardService.find(userid);
     const sources = await subscribeModel.find(userid);
-    await ctx.render('article', { articles, sources, name: 'BOARD' });
+    await ctx.render('board', {
+      articles,
+      sources,
+      username,
+    });
   })
   // 订阅
   .post('/subscribe', async (ctx) => {

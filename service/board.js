@@ -10,7 +10,7 @@ module.exports = {
 
   find: async (userid) => {
     const sqlString =
-      'select * from board left join article where board.articleid = article.id and board.userid = ?';
+      'select * from board left join article on board.articleid = article.id where board.userid = ?';
     const values = [userid];
     const { results: articles } = await mysql(sqlString, values);
     return articles;
