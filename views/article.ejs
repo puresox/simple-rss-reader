@@ -35,7 +35,7 @@
                                 <img onclick="javascript:$('#clloctForm').submit();" class="collect" src="/img/icon9.JPG">
                             </div>
                             <div class="author"><%= article.pubDate %></div>
-                            <div class="short_content"><%= article.description %></div>
+                            <div class="short_content"><%- article.description %></div>
                         </div>
                         </form>
                         <% }); %>
