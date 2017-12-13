@@ -30,9 +30,9 @@
                         <form id="clloctForm" name="clloctForm" action="/article/saveToBoard" method="post">
                         <div>
                             <div class="title">
-                                <strong href="<%= article.link %>"><%= article.title %></strong>
+                                <a style="color:#000;text-decoration:none;" href="<%= article.link %>"><strong ><%= article.title %></strong></a>
                                 <input type = "hidden" name = "articleid" value = "<%= article.id %>">
-                                <img onclick="javascript:$('#clloctForm').submit();" class="collect" src="/img/icon9.JPG">
+                                <img style="cursor:pointer;" onclick="javascript:$('#clloctForm').submit();" class="collect" src="/img/icon9.JPG">
                             </div>
                             <div class="author"><%= article.pubDate %></div>
                             <div class="short_content"><%- article.description %></div>

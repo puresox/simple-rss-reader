@@ -84,6 +84,7 @@ router
     } = await rssService.getSourceInfo(rssObj);
     if (!source) {
       const { insertId } = await sourceModel.create(name, description, rssLink, link);
+      await rssService.updateArticlesForOneSource(insertId, rss);
       sourceid = insertId;
     } else {
       sourceid = source.id;

@@ -30,9 +30,9 @@
                             <% articles.forEach(function(article){ %>
                             <form id="delArticleForm" name="delArticleForm" action="/article/removeFromBoard" method="post">
                             <div>
-                                <span href="<%= article.link %>"><%= article.title %></span>
+                                <span><a style="color:#000;text-decoration:none;" href="<%= article.link %>"><%= article.title %></a></span>
                                 <input type = "hidden" name = "articleid" value = "<%= article.id %>">
-                                <img onclick="javascript:$('#delArticleForm').submit();" src="/img/icon5.jpg">
+                                <img style="cursor:pointer;" onclick="javascript:$('#delArticleForm').submit();" src="/img/icon5.jpg">
                             </div>
                             </form>
                             <% }); %>

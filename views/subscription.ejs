@@ -29,7 +29,7 @@
                     <br>
                     <div id="manage">
                         <form id="serch_siteForm" name="serch_siteForm" action="/article/subscribe" method="post">
-                            <div id="url_serch"><div><input type="text" name="rss" placeholder="输入网站链接"></div><div><img onclick="javascript:$('#serch_siteForm').submit();" src="/img/icon6.jpg"></div></div>
+                            <div id="url_serch"><div><input type="text" name="rss" placeholder="输入网站链接"></div><div><img style="cursor:pointer;" onclick="javascript:$('#serch_siteForm').submit();" src="/img/icon6.jpg"></div></div>
                         </form>
                         <div id="publicPlatform">
                             <% sources.forEach(function(source){ %>
@@ -37,7 +37,7 @@
                             <div>
                                 <span><%= source.name %></span>
                                 <input type = "hidden" name = "sourceid" value = "<%= source.id %>">
-                                <img onclick="javascript:$('#delSiteForm').submit();" src="/img/icon5.jpg">
+                                <img style="cursor:pointer;" onclick="javascript:$('#delSiteForm').submit();" src="/img/icon5.jpg">
                             </div>
                             </form>
                             <% }); %>
